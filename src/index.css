@@ -1,0 +1,98 @@
+html {
+    font-family: "Trebuchet MS", serif;
+}
+
+body {
+    margin: 0;
+}
+
+.main-container {
+    height: 100vh;
+}
+
+.code-panels {
+    height: 100%;
+    background-color: #38454b;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.editor {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #232c2f;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-weight: bold;
+    gap: 10px;
+    container-type: inline-size;
+    border-bottom: white solid 3px;
+}
+
+.editor-header > h4 {
+    margin: 15px;
+    font-size: 1em;
+    container-name: sidebar;
+}
+
+@container (max-width: 60px) {
+    .editor-header > h4 {
+        font-size: 0.5rem;
+        margin: 5px 10px;
+    }
+}
+
+/* Override the built-in height property for CodeMirror. */
+.CodeMirror {
+    height: 100% !important;
+}
+
+.code-mirror-wrapper {
+    height: 100%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+    cursor: text;
+}
+
+.outputPanel {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media all and (max-width: 768px) {
+    .code-mirror-wrapper {
+        border-radius: 15px;
+        /*noinspection CssUnresolvedCustomProperty*/
+        border-top: 3px var(--editorBorderColor) solid;
+    }
+
+    .editor {
+        padding-top: 0;
+    }
+    
+    .editor-header {
+        display: none;
+    }
+}
+
+.drag-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 10;
+}
